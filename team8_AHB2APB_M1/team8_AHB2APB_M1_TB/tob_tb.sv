@@ -32,11 +32,15 @@ module top_tb;
  // Infinite loop for read and write operations
  forever begin
  // Write operation
- #20 Hwrite = 1; Hreadyin = 1; Htrans = 2'b10; Haddr = 32'h8400_0001; Hwdata = $random();
+ #10 Hwrite = 1; Hreadyin = 1; Htrans = 2'b10; Haddr = 32'h8400_0001; Hwdata = $random();
  #10 Htrans = 2'b00;
+ $display("Haddr = %h, Paddr = %h ", Haddr,Paddr);
+ #10;
  // Read operation
- #20 Hwrite = 0; Hreadyin = 1; Htrans = 2'b10; Haddr = 32'h8800_0001;
+ #10 Hwrite = 0; Hreadyin = 1; Htrans = 2'b10; Haddr = 32'h8800_0001;
  #10 Htrans = 2'b00;
+  $display("Haddr = %h, Paddr = %h", Haddr,Paddr);
+  #10;
  end
  end
  initial begin 
