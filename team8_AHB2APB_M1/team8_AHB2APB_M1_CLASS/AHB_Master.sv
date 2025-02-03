@@ -1,10 +1,10 @@
 module AHB_Master(
-                  input logic Hclk,Hresetn,Hreadyout;
-                  input logic [1:0]Hresp;
-                  input logic [31:0] Hrdata;
-                  output logic Hwrite,Hreadyin;
-                  output logic [1:0] Htrans;
-                  output logic [31:0] Hwdata,Haddr;
+                  input logic Hclk,Hresetn,Hreadyout,
+                  input logic [1:0]Hresp,
+                  input logic [31:0] Hrdata,
+                  output logic Hwrite,Hreadyin,
+                  output logic [1:0] Htrans,
+                  output logic [31:0] Hwdata,Haddr
                  );
 
 
