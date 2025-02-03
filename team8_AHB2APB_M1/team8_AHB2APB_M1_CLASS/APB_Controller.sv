@@ -8,16 +8,16 @@
 //
 // By- Harsha Vardhan Duvvuru
 
-module APB_FSM_Controller( Hclk,Hresetn,valid,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata,Hwrite,Haddr,Hwdata,Hwritereg,tempselx, 
-			   Pwrite,Penable,Pselx,Paddr,Pwdata,Hreadyout);
+module APB_FSM_Controller( 
+	                      input logic Hclk,Hresetn,valid,Hwrite,Hwritereg,
+                          input logic [31:0] Hwdata,Haddr,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata,
+                          input logic [2:0] tempselx,
+                          output logic Pwrite,Penable,
+                          output logic Hreadyout,
+                          output logic [2:0] Pselx,
+                          output logic [31:0] Paddr,Pwdata);
 
-input Hclk,Hresetn,valid,Hwrite,Hwritereg;
-input [31:0] Hwdata,Haddr,Haddr1,Haddr2,Hwdata1,Hwdata2,Prdata;
-input [2:0] tempselx;
-output logic Pwrite,Penable;
-output logic Hreadyout;  
-output logic [2:0] Pselx;
-output logic [31:0] Paddr,Pwdata;
+
 
 typedef enum bit[3:0] { ST_IDLE,ST_WWAIT,ST_READ,ST_WRITE, ST_WRITEP, ST_RENABLE, ST_WENABLE, ST_WENABLEP} STATE;
 
@@ -29,7 +29,7 @@ STATE PRESENT_STATE,NEXT_STATE;
 
 
 always_ff @(posedge Hclk)
- begin:PRESENT_STATE_LOGIC
+ begin
   if (~Hresetn)
     PRESENT_STATE<=ST_IDLE;
   else
@@ -40,7 +40,7 @@ always_ff @(posedge Hclk)
 /////////////////////////////////////////////////////// NEXT STATE LOGIC
 
 always_comb
- begin:NEXT_STATE_LOGIC
+ begin
   case (PRESENT_STATE)
     
  	ST_IDLE:begin
