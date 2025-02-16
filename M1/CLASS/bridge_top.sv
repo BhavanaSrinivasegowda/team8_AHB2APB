@@ -9,7 +9,7 @@
 // By - Bhavana M S
 
 
-module Bridge_Top (
+module bridge_top (
 input logic Hclk,Hresetn,Hwrite,Hreadyin,
 input logic [31:0] Hwdata,Haddr,Prdata,
 input logic [1:0] Htrans,
