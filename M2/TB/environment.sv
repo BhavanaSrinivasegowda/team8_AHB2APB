@@ -3,8 +3,8 @@
 // Module:  Environment
 // File:    environment.sv
 // -----------------------------------------------------------------------------
-// Author:  
-// Created: 
+// Author: Lokarjun R 
+// Created: Feb 16th
 //
 // Description: 
 // The environment class is a central part of the verification process in a 

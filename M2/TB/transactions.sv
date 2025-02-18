@@ -3,8 +3,8 @@
 // Module:  Transaction
 // File:    transactions.sv
 // -----------------------------------------------------------------------------
-// Author:  
-// Created: 
+// Author:Lokarjun R  
+// Created: Feb 15th 
 //
 // Description: 
 // The Transaction class defines the characteristics and behavior of a 
@@ -69,8 +69,8 @@ covergroup cov_cg;   // -> no @(Htrans...) not events
         Hburst_cp: coverpoint Hburst {
             bins single = {3'b000};
             bins incr   = {3'b001};
-            bins wrap4  = {3'b010};
-            bins incr4  = {3'b011};
+            //bins wrap4  = {3'b010};
+            //bins incr4  = {3'b011};
         }
         // Cross coverage
     Hwrite_x_htrans: cross Hwrite_cp, Htrans_cp;

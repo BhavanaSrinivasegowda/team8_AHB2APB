@@ -31,7 +31,7 @@ all:
 	@echo " "
 
 gui: compile
-	$(VSIM) -do run_gui.do ahb_apb_top
+	$(VSIM) -do run.do ahb_apb_top
 
 sim: compile
 	$(VSIM) -c -do run.do ahb_apb_top

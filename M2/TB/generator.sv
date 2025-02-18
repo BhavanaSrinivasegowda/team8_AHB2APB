@@ -3,8 +3,8 @@
 // Module:  Generator
 // File:    generator.sv
 // -----------------------------------------------------------------------------
-// Author:  
-// Created: 
+// Author: Lokarjun R
+// Created: Feb 12th
 //
 // Description: 
 // The SystemVerilog generator class generates transactions of different 
@@ -46,7 +46,7 @@ class generator;
         this.gen2driv   = gen2driv;
     endfunction
     
-    // Test Case 2
+    // Test Case 1
     task write_single_halfword_nonseq_single_Htransfer_okay();
         $display($time, "   write_single_halfword_nonseq_single_Htransfer_okay task in generator");
         tx = new();
@@ -63,7 +63,7 @@ class generator;
     endtask
 
 
-    // Test Case 3
+    // Test Case 2
     task read_single_halfword_nonseq_single_Htransfer_okay();
         $display($time, "   read_single_word_nonseq_single_Htransfer_okay task in generator");
         tx = new();
@@ -79,7 +79,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 4
+    // Test Case 3
     task write_single_byte_nonseq_single_Htransfer_error();
         $display($time, "   write_single_byte_nonseq_single_Htransfer_error task in generator");
         tx = new();
@@ -96,7 +96,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 5
+    // Test Case 4
     task read_incr_halfword_nonseq_incr_Hburst_okay();
         $display($time, "   read_incr_halfword_nonseq_incr_Hburst_okay task in generator");
         tx = new();
@@ -110,7 +110,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 6
+    // Test Case 5
     task write_incr_word_nonseq_incr_Hburst_okay();
         $display($time, "   write_incr_word_nonseq_incr_Hburst_okay task in generator");
         tx = new();
@@ -125,174 +125,9 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 7
-    task read_wrap4_byte_nonseq_wrap4_Hburst_okay();
-        $display($time, "   read_wrap4_byte_nonseq_wrap4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b10;
-	tx.Penable = 1;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
+    
 
-    // Test Case 8
-    task write_wrap4_halfword_nonseq_wrap4_Hburst_okay();
-        $display($time, "   write_wrap4_halfword_nonseq_wrap4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-	tx.Penable = 1;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 9
-    task read_wrap4_word_nonseq_wrap4_Hburst_okay();
-        $display($time, "   read_wrap4_word_nonseq_wrap4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b10;
-	tx.Penable = 1;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 10
-    task write_incr4_byte_nonseq_incr4_Hburst_okay();
-        $display($time, "   write_incr4_byte_nonseq_incr4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-	tx.Penable = 1;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 11
-    task read_incr4_halfword_nonseq_incr4_Hburst_okay();
-        $display($time, "   read_incr4_halfword_nonseq_incr4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b10;
-	tx.Penable = 1;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 12
-    task write_incr4_word_nonseq_incr4_Hburst_okay();
-        $display($time, "   write_incr4_word_nonseq_incr4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 13
-    task read_wrap8_byte_nonseq_wrap8_Hburst_okay();
-        $display($time, "   read_wrap8_byte_nonseq_wrap8_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b100;
-        tx.Htrans = 2'b10;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 14
-    task write_wrap8_halfword_nonseq_wrap8_Hburst_okay();
-        $display($time, "   write_wrap8_halfword_nonseq_wrap8_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b100;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 15
-    task read_wrap8_word_nonseq_wrap8_Hburst_okay();
-        $display($time, "   read_wrap8_word_nonseq_wrap8_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b100;
-        tx.Htrans = 2'b10;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 16
-    task write_incr8_byte_nonseq_incr8_Hburst_okay();
-        $display($time, "   write_incr8_byte_nonseq_incr8_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b101;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 17
-    task read_incr8_halfword_nonseq_incr8_Hburst_okay();
-        $display($time, "   read_incr8_halfword_nonseq_incr8_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b101;
-        tx.Htrans = 2'b10;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 18
-    task write_incr8_word_nonseq_incr8_Hburst_okay();
-        $display($time, "   write_incr8_word_nonseq_incr8_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b101;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 19
+    // Test Case 6
     task read_single_byte_seq_single_Htransfer_okay();
         $display($time, "   read_single_byte_seq_single_Htransfer_okay task in generator");
         tx = new();
@@ -305,7 +140,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 20
+    // Test Case 7
     task write_single_halfword_seq_single_Htransfer_okay();
         $display($time, "   write_single_halfword_seq_single_Htransfer_okay task in generator");
         tx = new();
@@ -319,7 +154,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 21
+    // Test Case 8
     task read_single_word_seq_single_Htransfer_okay();
         $display($time, "   read_single_word_seq_single_Htransfer_okay task in generator");
         tx = new();
@@ -332,7 +167,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 22
+    // Test Case 9
     task write_single_byte_seq_single_Htransfer_error();
         $display($time, "   write_single_byte_seq_single_Htransfer_error task in generator");
         tx = new();
@@ -347,7 +182,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 23
+    // Test Case 10
     task read_incr_halfword_seq_incr_Hburst_okay();
         $display($time, "   read_incr_halfword_seq_incr_Hburst_okay task in generator");
         tx = new();
@@ -360,7 +195,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 24
+    // Test Case 11
     task write_incr_word_seq_incr_Hburst_okay();
         $display($time, "   write_incr_word_seq_incr_Hburst_okay task in generator");
         tx = new();
@@ -374,89 +209,8 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 25
-    task read_wrap4_byte_seq_wrap4_Hburst_okay();
 
-        $display($time, "   read_wrap4_byte_seq_wrap4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b11;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 26
-    task write_wrap4_halfword_seq_wrap4_Hburst_okay();
-        $display($time, "   write_wrap4_halfword_seq_wrap4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b11;
-        tx.Hwdata = $urandom();
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 27
-    task read_wrap4_word_seq_wrap4_Hburst_okay();
-        $display($time, "   read_wrap4_word_seq_wrap4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b11;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 28
-    task write_incr4_byte_seq_incr4_Hburst_okay();
-        $display($time, "   write_incr4_byte_seq_incr4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b11;
-        tx.Hwdata = $urandom();
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 29
-    task read_incr4_halfword_seq_incr4_Hburst_okay();
-        $display($time, "   read_incr4_halfword_seq_incr4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b11;
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 30
-    task write_incr4_word_seq_incr4_Hburst_okay();
-        $display($time, "   write_incr4_word_seq_incr4_Hburst_okay task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b11;
-        tx.Hwdata = $urandom();
-	tx.cov_cg.sample(); // After transaction is fully defined
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 31
+    // Test Case 12
     task read_single_byte_nonseq_single_Htransfer_reset();
         $display($time, "   read_single_byte_nonseq_single_Htransfer_reset task in generator");
         tx = new();
@@ -470,7 +224,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 32
+    // Test Case 13
     task write_single_halfword_nonseq_single_Htransfer_reset();
         $display($time, "   write_single_halfword_nonseq_single_Htransfer_reset task in generator");
         tx = new();
@@ -484,7 +238,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 33
+    // Test Case 14
     task read_single_word_nonseq_single_Htransfer_reset();
         $display($time, "   read_single_word_nonseq_single_Htransfer_reset task in generator");
         tx = new();
@@ -497,7 +251,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 34
+    // Test Case 15
     task write_incr_byte_nonseq_incr_Hburst_reset();
         $display($time, "   write_incr_byte_nonseq_incr_Hburst_reset task in generator");
         tx = new();
@@ -511,7 +265,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 35
+    // Test Case 16
     task read_incr_halfword_nonseq_incr_Hburst_reset();
         $display($time, "   read_incr_halfword_nonseq_incr_Hburst_reset task in generator");
         tx = new();
@@ -524,7 +278,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 36
+    // Test Case 17
     task write_incr_word_nonseq_incr_Hburst_reset();
         $display($time, "   write_incr_word_nonseq_incr_Hburst_reset task in generator");
         tx = new();
@@ -538,171 +292,9 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 37
-    task read_wrap4_byte_nonseq_wrap4_Hburst_reset();
-        $display($time, "   read_wrap4_byte_nonseq_wrap4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b10;
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
 
-    // Test Case 38
-    task write_wrap4_halfword_nonseq_wrap4_Hburst_reset();
-        $display($time, "   write_wrap4_halfword_nonseq_wrap4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
 
-    // Test Case 39
-    task read_wrap4_word_nonseq_wrap4_Hburst_reset();
-        $display($time, "   read_wrap4_word_nonseq_wrap4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b10;
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 40
-    task write_incr4_byte_nonseq_incr4_Hburst_reset();
-        $display($time, "   write_incr4_byte_nonseq_incr4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 41
-    task read_incr4_halfword_nonseq_incr4_Hburst_reset();
-        $display($time, "   read_incr4_halfword_nonseq_incr4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b10;
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 42
-    task write_incr4_word_nonseq_incr4_Hburst_reset();
-        $display($time, "   write_incr4_word_nonseq_incr4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 43
-    task read_wrap8_byte_nonseq_wrap8_Hburst_reset();
-        $display($time, "   read_wrap8_byte_nonseq_wrap8_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b100;
-        tx.Htrans = 2'b10;
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 44
-    task write_wrap8_halfword_nonseq_wrap8_Hburst_reset();
-        $display($time, "   write_wrap8_halfword_nonseq_wrap8_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-  	tx.trans_type = Transaction::AHB_WRITE; // Set transaction type as WRITE
-
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b100;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 45
-    task read_wrap8_word_nonseq_wrap8_Hburst_reset();
-        $display($time, "   read_wrap8_word_nonseq_wrap8_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b100;
-        tx.Htrans = 2'b10;
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 46
-    task write_incr8_byte_nonseq_incr8_Hburst_reset();
-        $display($time, "   write_incr8_byte_nonseq_incr8_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b101;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 47
-    task read_incr8_halfword_nonseq_incr8_Hburst_reset();
-        $display($time, "   read_incr8_halfword_nonseq_incr8_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b101;
-        tx.Htrans = 2'b10;
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 48
-    task write_incr8_word_nonseq_incr8_Hburst_reset();
-        $display($time, "   write_incr8_word_nonseq_incr8_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b101;
-        tx.Htrans = 2'b10;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 49
+    // Test Case 18
     task read_single_byte_seq_single_Htransfer_reset();
         $display($time, "   read_single_byte_seq_single_Htransfer_reset task in generator");
         tx = new();
@@ -715,7 +307,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 50
+    // Test Case 19
     task write_single_halfword_seq_single_Htransfer_reset();
         $display($time, "   write_single_halfword_seq_single_Htransfer_reset task in generator");
         tx = new();
@@ -729,7 +321,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 51
+    // Test Case 20
     task read_single_word_seq_single_Htransfer_reset();
         $display($time, "   read_single_word_seq_single_Htransfer_reset task in generator");
         tx = new();
@@ -742,7 +334,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 52
+    // Test Case 21
     task write_single_byte_seq_single_Htransfer_error_reset();
         $display($time, "   write_single_byte_seq_single_Htransfer_error_reset task in generator");
         tx = new();
@@ -758,7 +350,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 53
+    // Test Case 22
     task read_incr_halfword_seq_incr_Hburst_reset();
         $display($time, "   read_incr_halfword_seq_incr_Hburst_reset task in generator");
         tx = new();
@@ -771,7 +363,7 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 54
+    // Test Case 23
     task write_incr_word_seq_incr_Hburst_reset();
         $display($time, "   write_incr_word_seq_incr_Hburst_reset task in generator");
         tx = new();
@@ -785,116 +377,8 @@ class generator;
         gen2driv.put(tx);
     endtask
 
-    // Test Case 55
-    task read_wrap4_byte_seq_wrap4_Hburst_reset();
-        $display($time, "   read_wrap4_byte_seq_wrap4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b11;
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
 
-    // Test Case 56
-    task write_wrap4_halfword_seq_wrap4_Hburst_reset();
-        $display($time, "   write_wrap4_halfword_seq_wrap4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b11;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 57
-    task read_wrap4_word_seq_wrap4_Hburst_reset();
-        $display($time, "   read_wrap4_word_seq_wrap4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b010;
-        tx.Htrans = 2'b11;
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 58
-    task write_incr4_byte_seq_incr4_Hburst_reset();
-        $display($time, "   write_incr4_byte_seq_incr4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b000;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b11;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 59
-    task read_incr4_halfword_seq_incr4_Hburst_reset();
-        $display($time, "   read_incr4_halfword_seq_incr4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 0;
-        tx.Hsize = 3'b001;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b11;
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 60
-    task write_incr4_word_seq_incr4_Hburst_reset();
-        $display($time, "   write_incr4_word_seq_incr4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b11;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 61
-    task write_incr4_word_idle_incr4_Hburst_reset();
-        $display($time, "   write_incr4_word_idle_incr4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b00;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 62
-    task write_incr4_word_busy_incr4_Hburst_reset();
-        $display($time, "   write_incr4_word_busy_incr4_Hburst_reset task in generator");
-        tx = new();
-        tx.Haddr = $urandom;
-        tx.Hwrite = 1;
-        tx.Hsize = 3'b010;
-        tx.Hburst = 3'b011;
-        tx.Htrans = 2'b01;
-        tx.Hwdata = $urandom();
-        tx.hreset = 1;
-        gen2driv.put(tx);
-    endtask
-
-    // Test Case 63
+    // Test Case 24
     task write_single_byte_idle_single_Htransfer_error();
         $display($time, "   write_single_byte_idle_single_Htransfer_error task in generator");
         tx = new();

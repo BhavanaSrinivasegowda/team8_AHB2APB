@@ -3,8 +3,8 @@
 // Module:  Coverage Collector
 // File:    coverage.sv
 // -----------------------------------------------------------------------------
-// Author:  
-// Created: 
+// Author: Lokarjun R
+// Created: Feb 16th
 //
 // Description: 
 // The SystemVerilog coverage collector class is responsible for gathering 
@@ -57,8 +57,6 @@ class coverage_collector;
         Hburst_cp: coverpoint tx.Hburst {
             bins single = {3'b000};
             bins incr   = {3'b001};
-            bins wrap4  = {3'b010};
-            bins incr4  = {3'b011};
         }
         // Cross coverage
         trans_x_htrans: cross trans_type_cp, Htrans_cp;

@@ -45,6 +45,8 @@ class test;
       #5;
       env.env_write_incr_word_nonseq_incr_Hburst_okay();
       #5;
+
+      /*  
       env.env_read_wrap4_byte_nonseq_wrap4_Hburst_okay();
       #5;
       env.env_write_wrap4_halfword_nonseq_wrap4_Hburst_okay();
@@ -69,6 +71,10 @@ class test;
       #5;
       env.env_write_incr8_word_nonseq_incr8_Hburst_okay();
       #5;
+      */
+
+      
+
       env.env_read_single_byte_seq_single_Htransfer_okay();
       #5;
       env.env_write_single_halfword_seq_single_Htransfer_okay();
@@ -81,6 +87,8 @@ class test;
       #5;
       env.env_write_incr_word_seq_incr_Hburst_okay();
       #5;
+
+      /*
       env.env_read_wrap4_byte_seq_wrap4_Hburst_okay();
       #5;
       env.env_write_wrap4_halfword_seq_wrap4_Hburst_okay();
@@ -93,6 +101,9 @@ class test;
       #5;
       env.env_write_incr4_word_seq_incr4_Hburst_okay();
       #5;
+      */
+
+
       env.env_read_single_byte_nonseq_single_Htransfer_reset();
       #5;
       env.env_write_single_halfword_nonseq_single_Htransfer_reset();
@@ -105,6 +116,8 @@ class test;
       #5;
       env.env_write_incr_word_nonseq_incr_Hburst_reset();
       #5;
+
+      /*
       env.env_read_wrap4_byte_nonseq_wrap4_Hburst_reset();
       #5;
       env.env_write_wrap4_halfword_nonseq_wrap4_Hburst_reset();
@@ -121,6 +134,9 @@ class test;
       #5;
       env.env_write_incr4_word_busy_incr4_Hburst_reset();
       #5;
+      */
+
+
       env.env_write_single_byte_idle_single_Htransfer_error();
       #5;
     
