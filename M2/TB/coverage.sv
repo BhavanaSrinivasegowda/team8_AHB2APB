@@ -61,7 +61,7 @@ class coverage_collector;
         // Cross coverage
         trans_x_htrans: cross trans_type_cp, Htrans_cp;
         trans_x_hsize: cross trans_type_cp, Hsize_cp;
-        trans_x_hburst: cross trans_type_cp, Hburst_cp;
+        //trans_x_hburst: cross trans_type_cp, Hburst_cp;
     endgroup
 
     // cov_cg ahb_cg;

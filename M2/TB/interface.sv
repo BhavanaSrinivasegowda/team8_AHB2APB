@@ -3,8 +3,8 @@
 // Module:  Interface
 // File:    interface.sv
 // -----------------------------------------------------------------------------
-// Author:  
-// Created: 
+// Author: Lokarjun R
+// Created: Feb 12th
 //
 // Description: 
 // The SystemVerilog interface encapsulates the signals of a specific protocol 

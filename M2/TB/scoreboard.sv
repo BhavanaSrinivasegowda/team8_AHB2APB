@@ -3,8 +3,8 @@
 // Module:  Scoreboard
 // File:    scoreboard.sv
 // -----------------------------------------------------------------------------
-// Author:  
-// Created: 
+// Author: Harsha Vardhan Duvvuru 
+// Created: 02/16/2025
 //
 // Description: 
 // The Scoreboard class plays a crucial role in verification process as it 

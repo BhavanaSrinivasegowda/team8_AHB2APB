@@ -3,8 +3,8 @@
 // Module:  Monitor
 // File:    monitor.sv
 // -----------------------------------------------------------------------------
-// Author:  
-// Created: 
+// Author: Harsha Vardhan Duvvuru 
+// Created: 02/16/2025
 //
 // Description: 
 // The monitor class is a crucial part of the verification process in a 

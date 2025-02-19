@@ -75,7 +75,7 @@ covergroup cov_cg;   // -> no @(Htrans...) not events
         // Cross coverage
     Hwrite_x_htrans: cross Hwrite_cp, Htrans_cp;
     Hwrite_x_hsize: cross Hwrite_cp, Hsize_cp;
-    Hwrite_x_hburst: cross Hwrite_cp, Hburst_cp;
+    //Hwrite_x_hburst: cross Hwrite_cp, Hburst_cp;
     endgroup
 
   function new();

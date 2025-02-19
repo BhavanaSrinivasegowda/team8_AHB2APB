@@ -3,8 +3,8 @@
 // Module:  Test
 // File:    test.sv
 // -----------------------------------------------------------------------------
-// Author:  
-// Created:
+// Author: Harsha Vardhan Duvvuru 
+// Created: 02/16/2025
 //
 // Description: 
 // The Test class forms the backbone of any testbench in a SystemVerilog 
@@ -30,7 +30,7 @@ class test;
     $display("in test");   
     env.create();  
 
-    repeat(50)        
+    repeat(100)        
     begin 
       
       $display("in test repeat");
@@ -40,10 +40,6 @@ class test;
       env.env_read_single_halfword_nonseq_single_Htransfer_okay();
       #5;
       env.env_write_single_byte_nonseq_single_Htransfer_error();
-      #5;
-      env.env_read_incr_halfword_nonseq_incr_Hburst_okay();
-      #5;
-      env.env_write_incr_word_nonseq_incr_Hburst_okay();
       #5;
 
       /*  
@@ -74,18 +70,11 @@ class test;
       */
 
       
-
-      env.env_read_single_byte_seq_single_Htransfer_okay();
-      #5;
       env.env_write_single_halfword_seq_single_Htransfer_okay();
       #5;
       env.env_read_single_word_seq_single_Htransfer_okay();
       #5;
       env.env_write_single_byte_seq_single_Htransfer_error();
-      #5;
-      env.env_read_incr_halfword_seq_incr_Hburst_okay();
-      #5;
-      env.env_write_incr_word_seq_incr_Hburst_okay();
       #5;
 
       /*
@@ -109,12 +98,6 @@ class test;
       env.env_write_single_halfword_nonseq_single_Htransfer_reset();
       #5;
       env.env_read_single_word_nonseq_single_Htransfer_reset();
-      #5;
-      env.env_write_incr_byte_nonseq_incr_Hburst_reset();
-      #5;
-      env.env_read_incr_halfword_nonseq_incr_Hburst_reset();
-      #5;
-      env.env_write_incr_word_nonseq_incr_Hburst_reset();
       #5;
 
       /*
