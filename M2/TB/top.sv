@@ -23,8 +23,6 @@ module ahb_apb_top;
     end
   end
 
- 
-
   ahb_apb_bfm_if bfm(clk, reset); // Connect clock and reset
 
 

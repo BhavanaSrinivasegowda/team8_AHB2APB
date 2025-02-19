@@ -1,0 +1,2 @@
+var g_data = {"data":[{"n":"work.AHB_slave_interface","id":5,"zf":1,"tc":49.20,"s":80.95,"b":66.66,"fc":0.00},{"n":"work.APB_FSM_Controller","id":6,"zf":1,"tc":10.70,"s":23.71,"b":17.30,"fc":0.00,"fs":12.50,"ft":0.00},{"n":"work.top_sv_unit","id":1,"zf":1,"tc":94.44,"g":88.88,"a":100.00}]};
+processDuData(g_data);
