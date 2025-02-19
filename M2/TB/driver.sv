@@ -48,10 +48,10 @@ class driver;
 
 // Task to get packets from generator and drive them into interface
 task drive; 
+    $display("driver tx", tx);
     gen2driv.get(tx);   
     driv2sb.put(tx);   
     driv2cor.put(tx);
-    $display("driver tx", tx);
     // Driving the values to the DUV via the virtual interface
     vif.drv_cb.Hwrite <= tx.Hwrite;     
     vif.drv_cb.Htrans <= tx.Htrans;

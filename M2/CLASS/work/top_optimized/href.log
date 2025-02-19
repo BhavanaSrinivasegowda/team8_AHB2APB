@@ -1,9 +1,4 @@
 BEGIN 3:ahb_apb_bfm_if:fast__2:work
-    Pwdata :  1:ahb_apb_top:fast:work
-    Hreadyin :  1:ahb_apb_top:fast:work
-    Hwdata :  1:ahb_apb_top:fast:work
-    Prdata :  1:ahb_apb_top:fast:work
-    Hrdata :  1:ahb_apb_top:fast:work
     Paddr :  1:ahb_apb_top:fast:work
     Htrans :  1:ahb_apb_top:fast:work
     Pwrite :  1:ahb_apb_top:fast:work
@@ -15,4 +10,9 @@ BEGIN 3:ahb_apb_bfm_if:fast__2:work
     Hreadyout :  1:ahb_apb_top:fast:work
     Pselx :  1:ahb_apb_top:fast:work
     Haddr :  1:ahb_apb_top:fast:work
+    Pwdata :  1:ahb_apb_top:fast:work
+    Hreadyin :  1:ahb_apb_top:fast:work
+    Hwdata :  1:ahb_apb_top:fast:work
+    Prdata :  1:ahb_apb_top:fast:work
+    Hrdata :  1:ahb_apb_top:fast:work
 END 

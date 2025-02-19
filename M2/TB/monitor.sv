@@ -40,8 +40,10 @@ class ahb_apb_monitor;
     // Watch and send transactions to the scoreboard
     task watch;
         tx = new();
+        $display("From input monitor");
         
         // Loop to monitor transactions
+        $display("From output monitor");
         forever begin
             @(vif.mon_cb) begin  // Use the clocking block to sample the interface signals
                 wait(vif.mon_cb.Htrans !== 2'b00); // Wait for any transaction to start
@@ -59,6 +61,7 @@ class ahb_apb_monitor;
                 mail2sb.put(tx); // Send the transaction to the scoreboard
             end
         end
+        
     endtask
 
 endclass
