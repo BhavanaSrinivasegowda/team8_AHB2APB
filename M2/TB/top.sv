@@ -1,3 +1,15 @@
+//The ahb_apb_top module serves as the testbench’s top-level module, integrating all essential
+//components for verifying the bridge_top DUT (Design Under Test). It includes a clock generator
+//producing a 5 ns period clock signal and an ahb_apb_bfm_if interface to facilitate communication
+//between the DUT and testbench.
+//
+//The testbench instantiates and connects the DUT, mapping its ports to the interface signals.
+//Additionally, a test instance (test_h) is created to drive the verification process, generating
+//transactions, sampling coverage, and executing the test sequence. The initial block handles reset
+//initialization and starts the simulation. After a defined simulation runtime, $stop is invoked to
+//terminate execution.
+
+//----------------------------------------------------------------------------------------------------------
 
 
 `include "transactions.sv"
@@ -74,5 +86,4 @@ bridge_top dut(
   end
 
 endmodule
-
 
