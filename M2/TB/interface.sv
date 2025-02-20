@@ -3,7 +3,7 @@
 // Module:  Interface
 // File:    interface.sv
 // -----------------------------------------------------------------------------
-// Author: Lokarjun R
+// Author: Bhavana MS
 // Created: Feb 12th
 //
 // Description: 
