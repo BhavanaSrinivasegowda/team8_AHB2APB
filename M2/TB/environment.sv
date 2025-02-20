@@ -26,6 +26,7 @@ class environment;
   mailbox #(Transaction) mail2sb; 
   mailbox #(Transaction) driv2cor;
 
+  creating instances of the components of the TB
   generator gen;        
   driver driv;          
   ahb_apb_monitor moni;         
@@ -96,7 +97,7 @@ task env_write_single_byte_nonseq_single_Htransfer_error();
 endtask
 
 
-// Test Case 20
+// Test Case 5
 task env_write_single_halfword_seq_single_Htransfer_okay();
   fork
     gen.write_single_halfword_seq_single_Htransfer_okay();
@@ -107,7 +108,7 @@ task env_write_single_halfword_seq_single_Htransfer_okay();
   join_none
 endtask
 
-// Test Case 21
+// Test Case 6
 task env_read_single_word_seq_single_Htransfer_okay();
   fork
     gen.read_single_word_seq_single_Htransfer_okay();
@@ -118,7 +119,7 @@ task env_read_single_word_seq_single_Htransfer_okay();
   join_none
 endtask
 
-// Test Case 22
+// Test Case 7
 task env_write_single_byte_seq_single_Htransfer_error();
   fork
     gen.write_single_byte_seq_single_Htransfer_error();
@@ -129,7 +130,7 @@ task env_write_single_byte_seq_single_Htransfer_error();
   join_none
 endtask
 
-// Test Case 31
+// Test Case 8
 task env_read_single_byte_nonseq_single_Htransfer_reset();
   fork
     gen.read_single_byte_nonseq_single_Htransfer_reset();
@@ -140,7 +141,7 @@ task env_read_single_byte_nonseq_single_Htransfer_reset();
   join_none
 endtask
 
-// Test Case 32
+// Test Case 9
 task env_write_single_halfword_nonseq_single_Htransfer_reset();
   fork
     gen.write_single_halfword_nonseq_single_Htransfer_reset();
@@ -151,7 +152,7 @@ task env_write_single_halfword_nonseq_single_Htransfer_reset();
   join_none
 endtask
 
-// Test Case 33
+// Test Case 10
 task env_read_single_word_nonseq_single_Htransfer_reset();
   fork
     gen.read_single_word_nonseq_single_Htransfer_reset();
@@ -164,7 +165,7 @@ endtask
 
 
 
-// Test Case 49
+// Test Case 11
 task env_read_single_byte_seq_single_Htransfer_reset();
   fork
     gen.read_single_byte_seq_single_Htransfer_reset();
@@ -174,7 +175,7 @@ task env_read_single_byte_seq_single_Htransfer_reset();
   join_none
 endtask
 
-// Test Case 50
+// Test Case 12
 task env_write_single_halfword_seq_single_Htransfer_reset();
   fork
     gen.write_single_halfword_seq_single_Htransfer_reset();
@@ -184,7 +185,7 @@ task env_write_single_halfword_seq_single_Htransfer_reset();
   join_none
 endtask
 
-// Test Case 51
+// Test Case 13
 task env_read_single_word_seq_single_Htransfer_reset();
   fork
     gen.read_single_word_seq_single_Htransfer_reset();
@@ -194,7 +195,7 @@ task env_read_single_word_seq_single_Htransfer_reset();
   join_none
 endtask
 
-// Test Case 52
+// Test Case 14
 task env_write_single_byte_seq_single_Htransfer_error_reset();
   fork
     gen.write_single_byte_seq_single_Htransfer_error_reset();
@@ -205,7 +206,7 @@ task env_write_single_byte_seq_single_Htransfer_error_reset();
 endtask
 
 
-// Test Case 63
+// Test Case 15
 task env_write_single_byte_idle_single_Htransfer_error();
   fork
     gen.write_single_byte_idle_single_Htransfer_error();
