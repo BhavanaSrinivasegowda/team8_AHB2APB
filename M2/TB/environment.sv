@@ -26,7 +26,7 @@ class environment;
   mailbox #(Transaction) mail2sb; 
   mailbox #(Transaction) driv2cor;
 
-  creating instances of the components of the TB
+  //creating instances of the components of the TB
   generator gen;        
   driver driv;          
   ahb_apb_monitor moni;         
