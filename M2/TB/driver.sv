@@ -3,7 +3,7 @@
 // Module:  Driver
 // File:    driver.sv
 // -----------------------------------------------------------------------------
-// Author: Lokarjun R
+// Author: Bhavana MS 
 // Created: Feb 12th
 //
 // Description: 
@@ -52,7 +52,7 @@ task drive;
     gen2driv.get(tx);   
     driv2sb.put(tx);   
     driv2cor.put(tx);
-    // Driving the values to the DUV via the virtual interface
+    // Driving the values to the DUV via the virtual interface to test the DUV
     vif.drv_cb.Hwrite <= tx.Hwrite;     
     vif.drv_cb.Htrans <= tx.Htrans;
     vif.drv_cb.Hwdata <= tx.Hwdata;     
