@@ -3,7 +3,7 @@
 // Module:  Coverage Collector
 // File:    coverage.sv
 // -----------------------------------------------------------------------------
-// Author: Lokarjun R
+// Author: Bhavana MS
 // Created: Feb 16th
 //
 // Description: 
@@ -37,7 +37,7 @@ class coverage_collector;
     Transaction tx;     // Transaction object
     mailbox #(Transaction) driv2cor;   // Mailbox for Generator to Driver
     virtual ahb_apb_bfm_if vif;
-    // Coverage groups
+
     covergroup cov_cg;
         trans_type_cp: coverpoint tx.trans_type {
             bins read  = {Transaction::AHB_READ};
@@ -64,22 +64,12 @@ class coverage_collector;
         //trans_x_hburst: cross trans_type_cp, Hburst_cp;
     endgroup
 
-    // cov_cg ahb_cg;
     function new(mailbox #(Transaction) driv2cor, virtual ahb_apb_bfm_if vif);
         this.driv2cor = driv2cor;
        cov_cg = new;
         this.vif = vif;
     endfunction
 
-    // Function to sample the coverage
-    /* function void sample_coverage();
-        cov_cg.sample();
-    endfunction
-
-    // Function to print the coverage report
-    function void print_coverage();
-        $display("Coverage: %0d%%", cov_cg.get_coverage() * 100);
-    endfunction */
 
     // Task to get Transaction from mailbox and sample coverage
     task execute();
