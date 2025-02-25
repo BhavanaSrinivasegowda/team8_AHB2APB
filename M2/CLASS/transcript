@@ -1,11 +1,11 @@
 # vsim -voptargs="+acc" -work work -c -do "run.do" ahb_apb_top 
-# Start time: 20:25:01 on Feb 18,2025
+# Start time: 20:48:14 on Feb 20,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
 # Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
 # Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
 # ** Warning: ../TB/test.sv(31): (vopt-2240) Treating stand-alone use of function 'create' as an implicit VOID cast.
-# ** Warning: ../TB/environment.sv(40): (vopt-2250) Function "create" has no return value assignment.
+# ** Warning: ../TB/environment.sv(41): (vopt-2250) Function "create" has no return value assignment.
 # ** Note: (vopt-143) Recognized 1 FSM in module "APB_FSM_Controller(fast)".
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
 # //  Questa Sim-64
@@ -32,109 +32,6 @@
 # Loading work.ahb_apb_bfm_if(fast)
 # do run.do
 # ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is duvvuru@mo.ece.pdx.edu.
-# ** Warning: (vlib-34) Library already exists at "work".
-# Errors: 0, Warnings: 1
-# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
-# Start time: 20:25:04 on Feb 18,2025
-# vlog AHB_Master.sv 
-# -- Compiling module AHB_Master
-# 
-# Top level modules:
-# 	AHB_Master
-# End time: 20:25:04 on Feb 18,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
-# Start time: 20:25:04 on Feb 18,2025
-# vlog AHB_Slave_Interface.sv 
-# -- Compiling module AHB_slave_interface
-# 
-# Top level modules:
-# 	AHB_slave_interface
-# End time: 20:25:04 on Feb 18,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
-# Start time: 20:25:04 on Feb 18,2025
-# vlog APB_Controller.sv 
-# -- Compiling module APB_FSM_Controller
-# 
-# Top level modules:
-# 	APB_FSM_Controller
-# End time: 20:25:04 on Feb 18,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
-# Start time: 20:25:04 on Feb 18,2025
-# vlog APB_Interface.sv 
-# -- Compiling module APB_Interface
-# 
-# Top level modules:
-# 	APB_Interface
-# End time: 20:25:04 on Feb 18,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
-# Start time: 20:25:04 on Feb 18,2025
-# vlog bridge_top.sv 
-# -- Compiling module bridge_top
-# 
-# Top level modules:
-# 	bridge_top
-# End time: 20:25:05 on Feb 18,2025, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
-# Start time: 20:25:05 on Feb 18,2025
-# vlog ../TB/top.sv 
-# -- Compiling package top_sv_unit
-# ** Warning: ../TB/test.sv(31): (vlog-2240) Treating stand-alone use of function 'create' as an implicit VOID cast.
-# -- Compiling interface ahb_apb_bfm_if
-# -- Compiling module bridge_top
-# -- Compiling module ahb_apb_top
-# 
-# Top level modules:
-# 	ahb_apb_top
-# End time: 20:25:05 on Feb 18,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-# QuestaSim-64 vopt 2024.2 Compiler 2024.05 May 20 2024
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-# Start time: 20:25:05 on Feb 18,2025
-# vopt ahb_apb_top -o top_optimized "+acc" "+cover=sbfec+bridge_top(rtl)." 
-# 
-# Top level modules:
-# 	ahb_apb_top
-# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
-# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
-# 
-# Analyzing design...
-# -- Loading module ahb_apb_top
-# -- Loading interface ahb_apb_bfm_if
-# -- Loading module bridge_top
-# -- Loading module AHB_slave_interface
-# -- Loading module APB_FSM_Controller
-# Optimizing 7 design-units (inlining 0/5 module instances):
-# -- Optimizing package top_sv_unit(fast)
-# ** Warning: ../TB/test.sv(31): (vopt-2240) Treating stand-alone use of function 'create' as an implicit VOID cast.
-# ** Warning: ../TB/environment.sv(40): (vopt-2250) Function "create" has no return value assignment.
-# -- Optimizing interface ahb_apb_bfm_if(fast__2)
-# -- Optimizing module APB_FSM_Controller(fast)
-# ** Note: (vopt-143) Recognized 1 FSM in module "APB_FSM_Controller(fast)".
-# -- Optimizing module AHB_slave_interface(fast)
-# -- Optimizing module ahb_apb_top(fast)
-# -- Optimizing module bridge_top(fast)
-# -- Optimizing interface ahb_apb_bfm_if(fast)
-# Optimized design name is top_optimized
-# End time: 20:25:06 on Feb 18,2025, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 3
-# End time: 20:25:06 on Feb 18,2025, Elapsed time: 0:00:05
-# Errors: 0, Warnings: 3
-# vsim top_optimized -coverage 
-# Start time: 20:25:06 on Feb 18,2025
-# Loading sv_std.std
-# Loading work.top_sv_unit(fast)
-# Loading work.ahb_apb_top(fast)
-# Loading work.ahb_apb_bfm_if(fast__2)
-# Loading work.bridge_top(fast)
-# Loading work.AHB_slave_interface(fast)
-# Loading work.APB_FSM_Controller(fast)
-# Loading work.ahb_apb_bfm_if(fast)
-# 1
 # configure wave not supported in batch mode
 # in top
 # in test
@@ -9238,38 +9135,16 @@
 # Input Write Data: e9537fec
 # Data Stored: e9537fec
 # 
-# ** Note: $stop    : ../TB/top.sv(73)
+# ** Note: $stop    : ../TB/top.sv(85)
 #    Time: 100010 ns  Iteration: 0  Instance: /ahb_apb_top
-# Break in Module ahb_apb_top at ../TB/top.sv line 73
-# Stopped at ../TB/top.sv line 73
+# Break in Module ahb_apb_top at ../TB/top.sv line 85
+# Stopped at ../TB/top.sv line 85
 # QuestaSim-64 vcover 2024.2 Coverage Utility 2024.05 May 20 2024
-# Start time: 20:25:08 on Feb 18,2025
+# Start time: 20:48:17 on Feb 20,2025
 # vcover report project.ucdb 
 # Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
 # Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
 # Coverage Report Summary Data by instance
-# 
-# =================================================================================
-# === Instance: /ahb_apb_top/dut/AHBSlave
-# === Design Unit: work.AHB_slave_interface
-# =================================================================================
-#     Enabled Coverage              Bins      Hits    Misses  Coverage
-#     ----------------              ----      ----    ------  --------
-#     Branches                        12         8         4    66.66%
-#     Conditions                      15         0        15     0.00%
-#     Statements                      21        17         4    80.95%
-# 
-# =================================================================================
-# === Instance: /ahb_apb_top/dut/APBControl
-# === Design Unit: work.APB_FSM_Controller
-# =================================================================================
-#     Enabled Coverage              Bins      Hits    Misses  Coverage
-#     ----------------              ----      ----    ------  --------
-#     Branches                        52         9        43    17.30%
-#     Conditions                      22         0        22     0.00%
-#     FSM States                       8         1         7    12.50%
-#     FSM Transitions                 22         0        22     0.00%
-#     Statements                      97        23        74    23.71%
 # 
 # =================================================================================
 # === Instance: /top_sv_unit
@@ -9287,12 +9162,12 @@
 # 
 # TOTAL ASSERTION COVERAGE: 100.00%  ASSERTIONS: 2
 # 
-# Total Coverage By Instance (filtered view): 37.40%
+# Total Coverage By Instance (filtered view): 94.44%
 # 
-# End time: 20:25:08 on Feb 18,2025, Elapsed time: 0:00:00
+# End time: 20:48:17 on Feb 20,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # QuestaSim-64 vcover 2024.2 Coverage Utility 2024.05 May 20 2024
-# Start time: 20:25:08 on Feb 18,2025
+# Start time: 20:48:17 on Feb 20,2025
 # vcover report project.ucdb -cvg -details 
 # Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
 # Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
@@ -9426,7 +9301,7 @@
 # 
 # Total Coverage By Instance (filtered view): 88.88%
 # 
-# End time: 20:25:08 on Feb 18,2025, Elapsed time: 0:00:00
+# End time: 20:48:17 on Feb 20,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 20:25:08 on Feb 18,2025, Elapsed time: 0:00:02
-# Errors: 0, Warnings: 0
+# End time: 20:48:17 on Feb 20,2025, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 3

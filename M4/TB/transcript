@@ -1,0 +1,23 @@
+# //  Questa Sim-64
+# //  Version 2021.3_1 linux_x86_64 Aug 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# coverage read -dataset covfile covfile.ucdb
+# covfile.ucdb opened as coverage dataset "covfile"
+# coverage report -file ahb_apb_bridge_report.txt -byfile -detail -noannotate -option -cvg
+# ** Warning: (vish-19053) Option '-file' has been deprecated. Please use option '-output' instead.
+# ** Warning: (vish-19053) Option '-byfile' has been deprecated. Please use option '-srcfile=*' instead.
+# ** Warning: (vish-19057) Option '-noannotate' has been deprecated and will be removed from future releases. It is no longer applicable and has no effect.
+coverage report -html -output covhtmlreport -annotate -details -assert -directive -cvg -code bcefst -threshL 50 -threshH 90
+# 
+# 

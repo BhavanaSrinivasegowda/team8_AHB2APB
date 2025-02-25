@@ -1,0 +1,2 @@
+var g_data = {"16":["reset_val"],"17":["write_val"],"18":["read_val"],"19":["idle_val","nonseq_val","seq_val"],"23":["reset_val"],"24":["write_val"],"25":["read_val"],"26":["idle_val","nonseq_val","seq_val"],"33":["reset_val"],"34":["write_val"],"35":["read_val"],"36":["idle_val","nonseq_val","seq_val"],"40":["reset_val"],"41":["write_val"],"42":["read_val"],"43":["idle_val","nonseq_val","seq_val"]};
+processCoverpointsMapData(g_data);
