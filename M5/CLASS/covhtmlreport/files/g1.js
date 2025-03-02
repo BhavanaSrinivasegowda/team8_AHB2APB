@@ -1,0 +1,2 @@
+var g_data = {"12":{"pr":"/top_sv_unit","ty":2,"dui":1,"dun":"work.top_sv_unit","cvgs":[{"h":["/top_sv_unit/Transaction/cov_cg",1,1,13],"sc":[1,53],"cov":[22,20,88.88],"opts":{"goal":"100","merge_instance":"auto(true)"}}]}};
+processCovergroupsData(g_data);
