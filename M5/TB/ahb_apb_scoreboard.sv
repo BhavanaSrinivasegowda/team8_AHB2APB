@@ -23,7 +23,6 @@ class ahb_apb_scoreboard extends uvm_scoreboard;
         trans_type    : coverpoint current_pkt.HTRANS {
             bins idle_val   = {2'b00};
             bins nonseq_val = {2'b10};
-            bins seq_val    = {2'b11};
         }
         WRITE_COVERAGE: cross bus_write, trans_type;
         READ_COVERAGE : cross bus_read, trans_type;
@@ -57,8 +56,20 @@ class ahb_apb_scoreboard extends uvm_scoreboard;
         end
     endtask
 
+    task check_address_range();
+    if (!(ahb_data_pkt.HADDR inside {[32'h8000_0000:32'h8C00_0000]})) begin
+        `uvm_error("AHB_SCOREBOARD", 
+                   $sformatf("Invalid AHB Address: %h. Expected range: 0x8000_0000 - 0x8C00_0000", 
+                   ahb_data_pkt.HADDR))
+    end
+    endtask
+
+
     task predict_data();
         if(ahb_data_pkt.HRESETn == 1'b0) return;
+
+        check_address_range();
+
 
         if(ahb_data_pkt.HTRANS == 2'b10) begin
             ahb_temp_data.HADDR  = ahb_data_pkt.HADDR;
@@ -85,14 +96,15 @@ class ahb_apb_scoreboard extends uvm_scoreboard;
     endtask
 
     task configure_pselx();
-        if(ahb_temp_data.HADDR inside {[32'h000:32'h0FF]}) apb_predicted_pkt.PSELx = 8'h01;
-        else if (ahb_temp_data.HADDR inside {[32'h100:32'h1FF]}) apb_predicted_pkt.PSELx = 8'h02;
+        if(ahb_temp_data.HADDR inside {[32'h8000_0000:32'h8400_0000]}) apb_predicted_pkt.PSELx = 8'h01;
+        else if (ahb_temp_data.HADDR inside {[32'h8400_0001:32'h8800_0000]}) apb_predicted_pkt.PSELx = 8'h02;
+        else if (ahb_temp_data.HADDR inside {[32'h8800_0001:32'h8C00_0000]}) apb_predicted_pkt.PSELx = 8'h03;
     endtask
 
     task check_apb_data();
         if(apb_predicted_pkt.PADDR  == apb_data_pkt.PADDR);
         if(apb_predicted_pkt.PWRITE == apb_data_pkt.PWRITE);
-        if(apb_predicted_pkt.PSELx  == apb_data_pkt.PSELx);
+        if(apb_predicted_pkt.PSELx  == apb_data_pkt.PSELx); 
         if(apb_predicted_pkt.PWDATA == apb_data_pkt.PWDATA);
         verified_data_count++;
     endtask
@@ -100,6 +112,7 @@ class ahb_apb_scoreboard extends uvm_scoreboard;
     task check_ahb_data();
         if(ahb_predicted_pkt.HRDATA == ahb_data_pkt.HRDATA);
         verified_data_count++;
+
     endtask
 
     function void report_phase(uvm_phase phase);

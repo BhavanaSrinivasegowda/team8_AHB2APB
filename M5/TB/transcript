@@ -13,8 +13,5 @@
 # //  18 U.S.C. Section 1905.
 # //
 # coverage read -dataset covfile covfile.ucdb
-# covfile.ucdb opened as coverage dataset "covfile"
-# coverage report -file ahb_apb_bridge_report.txt -byfile -detail -noannotate -option -cvg
-# ** Warning: (vish-19053) Option '-file' has been deprecated. Please use option '-output' instead.
-# ** Warning: (vish-19053) Option '-byfile' has been deprecated. Please use option '-srcfile=*' instead.
-# ** Warning: (vish-19057) Option '-noannotate' has been deprecated and will be removed from future releases. It is no longer applicable and has no effect.
+# Break key hit
+# ** UI-Msg: (vish-4000) A design must be loaded before the "vsim_break" command can be used.

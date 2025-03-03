@@ -19,7 +19,7 @@ class ahb_sequence_item extends uvm_sequence_item;
     endfunction
 
     constraint LOW_RESET        {HRESETn dist   {1:=9, 0:=1};}
-    constraint VALID_ADDRESS    {HADDR   inside {[32'h0:32'h7ff]}; }
+    constraint VALID_ADDRESS    {HADDR   inside {[32'h8000_0000:32'h8C00_0000]}; }
     constraint SELECT_BRIDGE    {HSELAHB dist   {1:=99, 0:=1};}
 
     function void do_print(uvm_printer printer);
