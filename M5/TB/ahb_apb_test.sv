@@ -3,6 +3,7 @@ class ahb_apb_base_test extends uvm_test;
 
     ahb_apb_env_config env_config_h;
     ahb_apb_env env_h;
+    int file;
 
     function new(string name = "ahb_apb_base_test", uvm_component parent = null);
         super.new(name, parent);
@@ -27,6 +28,22 @@ class ahb_apb_base_test extends uvm_test;
         env_config_h.apb_agent_is_active = UVM_ACTIVE;
 
         env_h = ahb_apb_env::type_id::create("env_h", this);
+    endfunction
+
+        function void start_of_simulation_phase(uvm_phase phase);
+        super.start_of_simulation_phase(phase);
+        file = $fopen("uvm_log.txt", "w"); // Open file for writing
+
+        if (file) begin
+            `uvm_info(get_type_name(), "Log file opened successfully", UVM_MEDIUM)
+            $fwrite(file, "Log file opened successfully\n"); // Write a test line
+            $fflush(file); // Ensure it's written immediately
+        end else begin
+            `uvm_fatal(get_type_name(), "Failed to open log file")
+        end
+
+        uvm_top.set_report_verbosity_level_hier(UVM_MEDIUM);
+        uvm_top.set_report_default_file_hier(file);
     endfunction
 endclass
 
