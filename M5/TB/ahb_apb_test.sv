@@ -1,9 +1,28 @@
+int logfile, errorlogfile;
+class ahb_apb_report_server extends uvm_report_server;
+`uvm_object_utils(ahb_apb_report_server)
+
+function new (string name="ahb_apb_report_server");
+	super.new();
+	$display( "Constructing report serevr %0s",name);
+endfunction
+
+
+virtual function string compose_message( uvm_severity severity,string name,string id,string message,string filename,int line );
+	$display("%0s",super.compose_message(severity,name,id,message,filename,line));
+
+    return $sformatf( "UVM_INFO | %16s | %2d | %0t | %-21s | %-7s | %s",
+                         filename, line, $time, name, id, message );
+endfunction
+
+endclass
+
+
 class ahb_apb_base_test extends uvm_test;
     `uvm_component_utils (ahb_apb_base_test)
 
     ahb_apb_env_config env_config_h;
     ahb_apb_env env_h;
-    int file;
 
     function new(string name = "ahb_apb_base_test", uvm_component parent = null);
         super.new(name, parent);
@@ -31,19 +50,17 @@ class ahb_apb_base_test extends uvm_test;
     endfunction
 
         function void start_of_simulation_phase(uvm_phase phase);
+        ahb_apb_report_server server = new;
         super.start_of_simulation_phase(phase);
-        file = $fopen("uvm_log.txt", "w"); // Open file for writing
-
-        if (file) begin
-            `uvm_info(get_type_name(), "Log file opened successfully", UVM_MEDIUM)
-            $fwrite(file, "Log file opened successfully\n"); // Write a test line
-            $fflush(file); // Ensure it's written immediately
-        end else begin
-            `uvm_fatal(get_type_name(), "Failed to open log file")
-        end
-
-        uvm_top.set_report_verbosity_level_hier(UVM_MEDIUM);
-        uvm_top.set_report_default_file_hier(file);
+        `uvm_info("TEST CLASS","start of simulation phase - test",UVM_NONE);
+        logfile = $fopen("UVM_log.txt","w");
+        set_report_severity_action_hier(UVM_INFO, UVM_DISPLAY | UVM_LOG);
+        set_report_severity_file_hier(UVM_INFO, logfile);
+        
+        errorlogfile = $fopen("error_log_file.txt","w");
+        set_report_severity_action_hier(UVM_ERROR, UVM_DISPLAY | UVM_LOG);
+        set_report_severity_file_hier(UVM_ERROR, errorlogfile);
+        uvm_report_server::set_server( server );
     endfunction
 endclass
 
